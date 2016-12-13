@@ -9,19 +9,34 @@
 #include <iostream>
 #include <stdio.h>
 #include <curses.h>
-#include "Map.h"
-#include "Cell.h"
+#include "World.hpp"
 
 using namespace std;
 
 int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "Hello, World!\n";
-    int i = 0;
-    for (i = 0; i < 100; i++) {
-
+    int iterateNumber = 50;
+    int cell[40][40] = {0};
+    
+    for (int i = 0; i < 40; i++) {
+        cell[10][i] = 1;
     }
-//    system("cls");
+    for (int i = 0; i < 40; i++) {
+        cell[30][i] = 1;
+    }
+    World world = *new World(cell);
+    world.showGrid();
+    
+    
+    for (int i = 0; i < iterateNumber; i++) {
+        world.judgeGame();
+        cout << "\n";
+        world.showGrid();
+        
+    }
+    
+    
     return 0;
 
 }
