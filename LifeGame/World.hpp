@@ -18,6 +18,8 @@ private:
     int height = 40;
     int width = 40;
     int grid[40][40];
+    int gridNext[40][40];
+    int gridPre[40][40];
     int quota_balance = 2;
     int quota_life = 3;
     
@@ -31,8 +33,13 @@ public:
         }
     };
     void judgeGame();
+    void judgeGameDiv();
+    void judgeGameHistory();
     void showGrid();
-    int checkAround(int,int);
+    void iterateGame(int,int);
+    int checkAroundLife(int,int);
+    int checkAroundLifePre(int,int);
+    bool checkParent(int,int);
     
 };
 
