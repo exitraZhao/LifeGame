@@ -16,7 +16,7 @@ using namespace std;
 int main(int argc, const char * argv[]) {
     // insert code here...
     
-    int iterateNumber = 500;
+    int iterateNumber = 50;
     int cell[40][40] = {0};
     
     for (int i = 0; i < 40; i++) {
@@ -27,13 +27,19 @@ int main(int argc, const char * argv[]) {
     }
     
     
-    cout << "please select the model:" << "\n" << " 1 for Normal." << "\n" << " 2 for Division." << "\n"<< " 0 for Exit." << "\n";
+    cout << "please select the model:" << "\n" << " 1 for Normal." << "\n" << " 2 for Division." << "\n" <<" 3 for GrandFather " << "\n" << " 4 for intervne " << "\n" << " 0 for Exit." << "\n";
     int choosenNum = 1 ;
     cin >> choosenNum ;
     while (choosenNum != 0) {
+//        int x = 0,y = 0;
+//        char m;
+//        cout << "input the cell \n ";
+//        while (x != -1 && y != -1) {
+//            cin >> x >> m >> y;
+//        }
         World world = *new World(cell);
         world.iterateGame(iterateNumber,choosenNum);
-        cout << "\n" << "please select the model:" << "\n" << " 1 for Normal." << "\n" << " 2 for Division." << "\n"<< " 3 for GrandFather " << "\n" <<  " 0 for Exit." << "\n";
+        cout << "\n" << "please select the model:" << "\n" << " 1 for Normal." << "\n" << " 2 for Division." << "\n"<< " 3 for GrandFather " << "\n"<<" 4 for intervene " << "\n" <<  " 0 for Exit." << "\n";
         cin >> choosenNum ;
        
     }

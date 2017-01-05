@@ -82,9 +82,23 @@ void World::iterateGame(int iterateNumber, int modelNum){
             judgeGameDiv();
         } else if (modelNum == 3){
             judgeGameHistory();
+        } else if (modelNum == 4){
+            judgeGame();
+            cout << "do you want to intervene the game? (1 for yes, 2 for no)\n";
+            int z;
+            cin >> z;
+            if (z == 1) {
+                cout << "choose a cell to give it born\n";
+                int x,y;
+                char m;
+                cin >> x >> m >> y;
+                giveBorn(x, y);
+            }
+
         }
         cout << "\n";
         showGrid();
+        
         cout << "///////////////////////";
     }
 }
@@ -216,3 +230,13 @@ int World::checkAroundLifePre(int i, int j){
     
     return sum;
 }
+
+void World::giveBorn(int x, int y){
+    if ((x >= 0 && x<+ 39) && (y >= 0 && y<+ 39)) {
+        grid[x][y] = 1;
+        cout << "set (" << x << "," << y << ") alive";
+    }else {
+        cout << "illegal.";
+    }
+}
+

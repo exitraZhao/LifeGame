@@ -23,6 +23,18 @@ private:
     int quota_balance = 2;
     int quota_life = 3;
     
+    int aliveJudge = 1;
+    int deadJudge = 0;
+    
+    int checkAroundLife(int,int);
+    int checkAroundLifePre(int,int);
+    bool checkParent(int,int);
+    void judgeGame();
+    void judgeGameDiv();
+    void judgeGameHistory();
+    void judgeGameIntervene();
+    
+    
 public:
     World();
     World(int cell[40][40] ){
@@ -32,15 +44,21 @@ public:
             }
         }
     };
-    void judgeGame();
-    void judgeGameDiv();
-    void judgeGameHistory();
+   
     void showGrid();
     void iterateGame(int,int);
-    int checkAroundLife(int,int);
-    int checkAroundLifePre(int,int);
-    bool checkParent(int,int);
+    void giveBorn(int,int);
+   
     
 };
 
+class Cell {
+private:
+    int lifeJudge = 0;
+    int aliveJudge = 1;
+    int deadJudge = 0;
+public:
+    void setAlive();
+    void setDead();
+};
 #endif /* World_hpp */
